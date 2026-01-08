@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1223,23 +1224,7 @@
             }
         }
         function loadDefaultProject() {
-            // Projet par défaut avec 5 tâches exemples
-            const today = new Date();
-            const deadline = new Date(today);
-            deadline.setDate(deadline.getDate() + 30); // 30 jours à partir d'aujourd'hui
-            project = {
-                name: 'Lancement Site E-commerce',
-                deadline: formatDateISO(deadline),
-                workdaysOnly: true,
-                hoursPerDay: 8,
-                tasks: [
-                    { id: 1, name: 'Analyse des besoins', duration: 3, buffer: 1, blocking: true, notes: 'Réunions client et rédaction cahier des charges' },
-                    { id: 2, name: 'Maquettes UI/UX', duration: 5, buffer: 2, blocking: true, notes: 'Figma, validation client' },
-                    { id: 3, name: 'Développement Frontend', duration: 8, buffer: 0, blocking: false, notes: 'React + TailwindCSS' },
-                    { id: 4, name: 'Développement Backend', duration: 6, buffer: 1, blocking: true, notes: 'API REST, Base de données' },
-                    { id: 5, name: 'Tests et recette', duration: 4, buffer: 2, blocking: true, notes: 'Tests unitaires, UAT' }
-                ]
-            };
+            
         }
         // ==========================================
         // ACTIONS UI
@@ -1339,5 +1324,43 @@
             });
         });
     </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
